@@ -11,20 +11,20 @@ class TodoItem {
 const tmpData = [{
     id: 1,
     name: "Wash Dishes",
-    createdDate: Date(),
-    dueDate: Date(),
+    createdDate: dayjs(),
+    dueDate: dayjs(),
     status: "Not Started"
 },{
     id: 2,
     name: "Do Laundry",
-    createdDate: Date(),
-    dueDate: Date(),
+    createdDate: dayjs(),
+    dueDate: dayjs(),
     status: "In Progress"
 },{
     id: 3,
     name: "Vacuum Floor",
-    createdDate: Date(),
-    dueDate: Date(),
+    createdDate: dayjs(),
+    dueDate: dayjs(),
     status: "Completed"
 }];
 
