@@ -44,7 +44,7 @@ function listenSubmitEditTodoButton(event) {
     editTodoItem(todoItem);
 
     showEditTodo = false;
-    renderEditTodoHTML();
+    renderEditTodoHTML({});
 
     renderTodoListHTML();
 }
@@ -85,10 +85,6 @@ function renderAddTodoHTML() {
 }
 
 function renderEditTodoHTML(todoItem) {
-    if(!todoItem) {
-        todoItem = {};
-    }
-    
     const editTodoElement = document.querySelector('.js-edit-todo');
 
     const editTodoHTML = `
