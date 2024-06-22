@@ -43,7 +43,6 @@ export function getTodoItem(todoItemId) {
 }
 
 export function addTodoItem(todoItem) {
-    //TODO: Add id creation UUID
     const id = 4;
     todoItem.id = id;
 
