@@ -1,4 +1,4 @@
-import { todoItems, getTodoItem, addTodoItem, deleteTodoItem } from "../data/todoData.js"
+import { todoItems, getTodoItem, addTodoItem, editTodoItem, deleteTodoItem } from "../data/todoData.js"
 
 let showAddTodo = false;
 let showEditTodo = false;
@@ -26,6 +26,25 @@ function listenSubmitAddTodoButton(event) {
 
     showAddTodo = false;
     renderAddTodoHTML();
+
+    renderTodoListHTML();
+}
+
+function listenSubmitEditTodoButton(event) {
+    event.preventDefault();
+
+    const todoItem = {
+        id: event.target.submit.dataset.todoId,
+        name: event.target.name.value,
+        createdDate: event.target.createdDate.value,
+        dueDate: event.target.dueDate.value,
+        status: event.target.status.value
+    }
+
+    editTodoItem(todoItem);
+
+    showEditTodo = false;
+    renderEditTodoHTML();
 
     renderTodoListHTML();
 }
@@ -66,8 +85,10 @@ function renderAddTodoHTML() {
 }
 
 function renderEditTodoHTML(todoItem) {
-    console.log(todoItem);
-
+    if(!todoItem) {
+        todoItem = {};
+    }
+    
     const editTodoElement = document.querySelector('.js-edit-todo');
 
     const editTodoHTML = `
@@ -89,14 +110,14 @@ function renderEditTodoHTML(todoItem) {
                 <option value="Completed" ${todoItem.status != "Completed" || "selected"}>Completed</option>
             </select><br>
 
-            <input type="submit" value="Submit">
+            <input type="submit" value="Submit" name="submit" data-todo-id=${todoItem.id}>
         </fieldset>
     `;
 
     if(showEditTodo) {
         editTodoElement.innerHTML = editTodoHTML;
 
-        //editTodoElement.addEventListener('submit', listenSubmitEditTodoButton);
+        editTodoElement.addEventListener('submit', listenSubmitEditTodoButton);
     } else {
         editTodoElement.innerHTML = '';
     } 

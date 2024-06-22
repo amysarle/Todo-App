@@ -51,6 +51,17 @@ export function addTodoItem(todoItem) {
     saveTodoItems();
 }
 
+export function editTodoItem(todoItem) {
+    todoItems = todoItems.map((todoItemTmp) => {
+        if(todoItem.id == todoItemTmp.id) {
+            return todoItem;
+        } else {
+            return todoItemTmp;
+        }
+    });
+    saveTodoItems();
+}
+
 export function deleteTodoItem(todoItemId) {
     todoItems = todoItems.filter((todoItem) => {
         if(todoItem.id == todoItemId){
