@@ -34,23 +34,26 @@ function renderAddTodoHTML() {
     const addTodoElement = document.querySelector('.js-add-todo');
 
     const addTodoHTML = `
-        <label for="name">Name:</label><br>
-        <input type="text" id="name" name="name"><br>
+        <fieldset>
+            <legend>Add Todo</legend>
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name"><br>
 
-        <label for="createdDate">Created Date:</label><br>
-        <input type="date" id="createdDate" name="createdDate" value=${dayjs().format("YYYY-MM-DD")}><br>
+            <label for="createdDate">Created Date:</label><br>
+            <input type="date" id="createdDate" name="createdDate" value=${dayjs().format("YYYY-MM-DD")}><br>
 
-        <label for="dueDate">Due Date:</label><br>
-        <input type="date" id="dueDate" name="dueDate" value=${dayjs().add(1, 'day').format("YYYY-MM-DD")}><br>
+            <label for="dueDate">Due Date:</label><br>
+            <input type="date" id="dueDate" name="dueDate" value=${dayjs().add(1, 'day').format("YYYY-MM-DD")}><br>
 
-        <label for="status">Status:</label><br>
-        <select name="status" id="status">
-            <option value="Not Started" selected>Not Started</option>
-            <option value="In Progress">In Progress</option>
-            <option value="Completed">Completed</option>
-        </select><br>
+            <label for="status">Status:</label><br>
+            <select name="status" id="status">
+                <option value="Not Started" selected>Not Started</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Completed">Completed</option>
+            </select><br>
 
-        <input type="submit" value="Submit">
+            <input type="submit" value="Submit">
+        </fieldset>
     `;
 
     if (showAddTodo) {
@@ -106,12 +109,3 @@ function renderTodoListHTML() {
 
 renderAddTodoHTML();
 renderTodoListHTML();
-
-/*
-<input list="statuses" name="status" value="Not Started">
-        <datalist id="statuses">
-            <option value="Not Started">
-            <option value="In Progress">
-            <option value="Completed">
-        </datalist>
-*/
