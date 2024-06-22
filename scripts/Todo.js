@@ -11,6 +11,7 @@ function renderTodoHTML() {
             <th>Created Date</th>
             <th>Due Date</th>
             <th>Status</th>
+            <th>Edit</th>
             <th>Delete</th>
         </tr>
         `;
@@ -19,9 +20,10 @@ function renderTodoHTML() {
         todoHTML += `
             <tr class=js-todo-item-${todoItem.id}>
                 <td>${todoItem.name}</td>
-                <td>${todoItem.createdDate}</td>
-                <td>${todoItem.dueDate}</td>
+                <td>${dayjs(todoItem.createdDate).format('MM/DD/YY')}</td>
+                <td>${dayjs(todoItem.dueDate).format('MM/DD/YY')}</td>
                 <td>${todoItem.status}</td>
+                <td><button>Edit</button></td>
                 <td><button class=js-todo-delete-button data-todo-id=${todoItem.id}>Delete</button></td>
             </tr>
         `;
