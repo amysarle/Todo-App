@@ -30,8 +30,23 @@ function saveTodoItems() {
     )
 }
 
+export function getTodoItem(todoItemId) {
+    let matchingTodoItem;
+
+    todoItems.forEach((todoItem) => {
+        if(todoItem.id == todoItemId) {
+            matchingTodoItem = todoItem;
+        }
+    })
+
+    return matchingTodoItem;
+}
+
 export function addTodoItem(todoItem) {
     //TODO: Add id creation UUID
+    const id = 4;
+    todoItem.id = id;
+
     todoItems.push(new TodoItem(todoItem));
     saveTodoItems();
 }

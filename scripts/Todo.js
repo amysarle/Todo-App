@@ -1,17 +1,21 @@
-import { todoItems, addTodoItem, deleteTodoItem } from "../data/todoData.js"
+import { todoItems, getTodoItem, addTodoItem, deleteTodoItem } from "../data/todoData.js"
 
 let showAddTodo = false;
+let showEditTodo = false;
 
 function listenAddTodoButton() {
-    showAddTodo = !showAddTodo;
-    renderAddTodoHTML();
+    const addTodoButton = document.querySelector('.js-add-todo-button');
+
+    addTodoButton.addEventListener('click', () => {
+        showAddTodo = !showAddTodo;
+        renderAddTodoHTML();
+    });
 }
 
 function listenSubmitAddTodoButton(event) {
     event.preventDefault();
     
     const todoItem = {
-        id: 4,
         name: event.target.name.value,
         createdDate: event.target.createdDate.value,
         dueDate: event.target.dueDate.value,
@@ -20,17 +24,13 @@ function listenSubmitAddTodoButton(event) {
 
     addTodoItem(todoItem);
 
-    showAddTodo = !showAddTodo;
+    showAddTodo = false;
     renderAddTodoHTML();
 
     renderTodoListHTML();
 }
 
 function renderAddTodoHTML() {
-    const addTodoButton = document.querySelector('.js-add-todo-button');
-
-    addTodoButton.addEventListener('click', listenAddTodoButton);
-
     const addTodoElement = document.querySelector('.js-add-todo');
 
     const addTodoHTML = `
@@ -63,6 +63,43 @@ function renderAddTodoHTML() {
     } else {
         addTodoElement.innerHTML = '';
     }
+}
+
+function renderEditTodoHTML(todoItem) {
+    console.log(todoItem);
+
+    const editTodoElement = document.querySelector('.js-edit-todo');
+
+    const editTodoHTML = `
+        <fieldset>
+            <legend>Edit Todo</legend>
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" value="${todoItem.name}"><br>
+
+            <label for="createdDate">Created Date:</label><br>
+            <input type="date" id="createdDate" name="createdDate" value=${dayjs(todoItem.createdDate).format("YYYY-MM-DD")}><br>
+
+            <label for="dueDate">Due Date:</label><br>
+            <input type="date" id="dueDate" name="dueDate" value=${dayjs(todoItem.dueDate).format("YYYY-MM-DD")}><br>
+
+            <label for="status">Status:</label><br>
+            <select name="status" id="status">
+                <option value="Not Started" ${todoItem.status != "Not Started" || "selected"}>Not Started</option>
+                <option value="In Progress" ${todoItem.status != "In Progress" || "selected"}>In Progress</option>
+                <option value="Completed" ${todoItem.status != "Completed" || "selected"}>Completed</option>
+            </select><br>
+
+            <input type="submit" value="Submit">
+        </fieldset>
+    `;
+
+    if(showEditTodo) {
+        editTodoElement.innerHTML = editTodoHTML;
+
+        //editTodoElement.addEventListener('submit', listenSubmitEditTodoButton);
+    } else {
+        editTodoElement.innerHTML = '';
+    } 
 }
 
 function renderTodoListHTML() {
@@ -101,8 +138,11 @@ function renderTodoListHTML() {
     editButtons.forEach((editButton) => {
         editButton.addEventListener('click', () => {
             const todoId = editButton.dataset.todoId;
-            console.log(todoId);
-            //TODO: Add edit functionality
+
+            const todoItem = getTodoItem(todoId);
+
+            showEditTodo = true;
+            renderEditTodoHTML(todoItem);
         })
     })
 
@@ -117,5 +157,5 @@ function renderTodoListHTML() {
     })
 }
 
-renderAddTodoHTML();
+listenAddTodoButton();
 renderTodoListHTML();
