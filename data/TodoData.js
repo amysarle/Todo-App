@@ -31,6 +31,7 @@ function saveTodoItems() {
 }
 
 export function addTodoItem(todoItem) {
+    //TODO: Add id creation UUID
     todoItems.push(new TodoItem(todoItem));
     saveTodoItems();
 }
