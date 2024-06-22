@@ -88,13 +88,23 @@ function renderTodoListHTML() {
                 <td>${dayjs(todoItem.createdDate).format('MM/DD/YY')}</td>
                 <td>${dayjs(todoItem.dueDate).format('MM/DD/YY')}</td>
                 <td>${todoItem.status}</td>
-                <td><button>Edit</button></td>
+                <td><button class=js-todo-edit-button data-todo-id=${todoItem.id}>Edit</button></td>
                 <td><button class=js-todo-delete-button data-todo-id=${todoItem.id}>Delete</button></td>
             </tr>
         `;
     });
 
     todoTable.innerHTML = todoHTML;
+
+    const editButtons = document.querySelectorAll('.js-todo-edit-button');
+
+    editButtons.forEach((editButton) => {
+        editButton.addEventListener('click', () => {
+            const todoId = editButton.dataset.todoId;
+            console.log(todoId);
+            //TODO: Add edit functionality
+        })
+    })
 
     const deleteButtons = document.querySelectorAll('.js-todo-delete-button');
 
