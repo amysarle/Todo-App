@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+}
+
+header {
+    background-color: lightgray;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-title {
+    font-weight: bold;
+    font-size: 25px;
+    padding: 5px;
+}
+
+.header-item {
+    font-weight: bold;
+    font-size: 20px;
+    padding: 5px;
+}
+
+section {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
