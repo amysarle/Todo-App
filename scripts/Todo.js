@@ -9,7 +9,21 @@ function listenAddTodoButton() {
 
 function listenSubmitAddTodoButton(event) {
     event.preventDefault();
-    console.log('submitted');
+    
+    const todoItem = {
+        id: 4,
+        name: event.target.name.value,
+        createdDate: event.target.createdDate.value,
+        dueDate: event.target.dueDate.value,
+        status: event.target.status.value
+    }
+
+    addTodoItem(todoItem);
+
+    showAddTodo = !showAddTodo;
+    renderAddTodoHTML();
+
+    renderTodoListHTML();
 }
 
 function renderAddTodoHTML() {
