@@ -1,7 +1,55 @@
 import { todoItems, addTodoItem, deleteTodoItem } from "../data/todoData.js"
 
-function renderTodoHTML() {
-    const todoTable = document.querySelector(".js-todo-table");
+let showAddTodo = false;
+
+function listenAddTodoButton() {
+    showAddTodo = !showAddTodo;
+    renderAddTodoHTML();
+}
+
+function listenSubmitAddTodoButton(event) {
+    event.preventDefault();
+    console.log('submitted');
+}
+
+function renderAddTodoHTML() {
+    const addTodoButton = document.querySelector('.js-add-todo-button');
+
+    addTodoButton.addEventListener('click', listenAddTodoButton);
+
+    const addTodoElement = document.querySelector('.js-add-todo');
+
+    const addTodoHTML = `
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br>
+
+        <label for="createdDate">Created Date:</label><br>
+        <input type="date" id="createdDate" name="createdDate" value=${dayjs().format("YYYY-MM-DD")}><br>
+
+        <label for="dueDate">Due Date:</label><br>
+        <input type="date" id="dueDate" name="dueDate" value=${dayjs().add(1, 'day').format("YYYY-MM-DD")}><br>
+
+        <label for="status">Status:</label><br>
+        <select name="status" id="status">
+            <option value="Not Started" selected>Not Started</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed</option>
+        </select><br>
+
+        <input type="submit" value="Submit">
+    `;
+
+    if (showAddTodo) {
+        addTodoElement.innerHTML = addTodoHTML;
+
+        addTodoElement.addEventListener('submit', listenSubmitAddTodoButton);
+    } else {
+        addTodoElement.innerHTML = '';
+    }
+}
+
+function renderTodoListHTML() {
+    const todoTable = document.querySelector('.js-todo-table');
 
     let todoHTML = '';
 
@@ -37,9 +85,19 @@ function renderTodoHTML() {
         deleteButton.addEventListener('click', () => {
             const todoId = deleteButton.dataset.todoId;
             deleteTodoItem(todoId);
-            renderTodoHTML();
+            renderTodoListHTML();
         })
     })
 }
 
-renderTodoHTML();
+renderAddTodoHTML();
+renderTodoListHTML();
+
+/*
+<input list="statuses" name="status" value="Not Started">
+        <datalist id="statuses">
+            <option value="Not Started">
+            <option value="In Progress">
+            <option value="Completed">
+        </datalist>
+*/
