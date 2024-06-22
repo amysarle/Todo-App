@@ -8,6 +8,43 @@ class TodoItem {
     }
 }
 
+export let todoItems;
+
+function loadTodoItems() {
+    todoItems = JSON.parse(localStorage.getItem('todoItems'));
+
+    todoItems = todoItems.map((todoItem) => {
+        return new TodoItem(todoItem);
+    });
+
+    if(todoItems.length == 0) {
+        todoItems = tmpData.map((todoItem) => {
+            return new TodoItem(todoItem);
+        });
+    }
+}
+
+function saveTodoItems() {
+    localStorage.setItem('todoItems', 
+        JSON.stringify(todoItems)
+    )
+}
+
+export function addTodoItem(todoItem) {
+    todoItems.push(new TodoItem(todoItem));
+    saveTodoItems();
+}
+
+export function deleteTodoItem(todoItemId) {
+    todoItems = todoItems.filter((todoItem) => {
+        if(todoItem.id == todoItemId){
+            return false;
+        }
+        return true;
+    });
+    saveTodoItems();
+}
+
 const tmpData = [{
     id: 1,
     name: "Wash Dishes",
@@ -28,29 +65,4 @@ const tmpData = [{
     status: "Completed"
 }];
 
-export let todoItems;
-
-function loadTodoItems() {
-    todoItems = tmpData.map((todoItem) => {
-        return new TodoItem(todoItem);
-    });
-}
-
 loadTodoItems();
-
-/*function saveTodoItems() {
-
-}*/
-
-export function addTodoItem(todoItem) {
-    todoItems.push(new TodoItem(todoItem));
-}
-
-export function deleteTodoItem(todoItemId) {
-    todoItems = todoItems.filter((todoItem) => {
-        if(todoItem.id == todoItemId){
-            return false;
-        }
-        return true;
-    });
-}
