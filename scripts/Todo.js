@@ -74,6 +74,7 @@ function renderAddTodoHTML() {
             </select><br>
 
             <input type="submit" value="Submit">
+
             <input type="button" value="Cancel" class="js-add-todo-cancel-button">
         </fieldset>
     `;
@@ -116,6 +117,8 @@ function renderEditTodoHTML(todoItem) {
             </select><br>
 
             <input type="submit" value="Submit" name="submit" data-todo-id=${todoItem.id}>
+
+            <input type="button" value="Cancel" class="js-edit-todo-cancel-button">
         </fieldset>
     `;
 
@@ -123,6 +126,12 @@ function renderEditTodoHTML(todoItem) {
         editTodoElement.innerHTML = editTodoHTML;
 
         editTodoElement.addEventListener('submit', listenSubmitEditTodoButton);
+
+        const editTodoCancelButton = document.querySelector('.js-edit-todo-cancel-button');
+        editTodoCancelButton.addEventListener('click', () => {
+            showEditTodo = !showEditTodo;
+            renderEditTodoHTML({});
+        });
     } else {
         editTodoElement.innerHTML = '';
     } 
