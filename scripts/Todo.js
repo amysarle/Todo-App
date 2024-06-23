@@ -74,6 +74,7 @@ function renderAddTodoHTML() {
             </select><br>
 
             <input type="submit" value="Submit">
+            <input type="button" value="Cancel" class="js-add-todo-cancel-button">
         </fieldset>
     `;
 
@@ -81,6 +82,12 @@ function renderAddTodoHTML() {
         addTodoElement.innerHTML = addTodoHTML;
 
         addTodoElement.addEventListener('submit', listenSubmitAddTodoButton);
+
+        const addTodoCancelButton = document.querySelector('.js-add-todo-cancel-button');
+        addTodoCancelButton.addEventListener('click', () => {
+            showAddTodo = !showAddTodo;
+            renderAddTodoHTML();
+        });
     } else {
         addTodoElement.innerHTML = '';
     }
