@@ -10,6 +10,10 @@ class TodoItem {
 
 export let todoItems;
 
+function sortTodoItems() {
+    todoItems = todoItems.sort((a, b) => dayjs(a.dueDate) - dayjs(b.dueDate));
+}
+
 function loadTodoItems() {
     todoItems = JSON.parse(localStorage.getItem('todoItems'));
 
@@ -46,6 +50,7 @@ export function addTodoItem(todoItem) {
     todoItem.id = id;
 
     todoItems.push(new TodoItem(todoItem));
+    sortTodoItems();
     saveTodoItems();
 }
 
@@ -57,6 +62,7 @@ export function editTodoItem(todoItem) {
             return todoItemTmp;
         }
     });
+    sortTodoItems();
     saveTodoItems();
 }
 
@@ -67,6 +73,7 @@ export function deleteTodoItem(todoItemId) {
         }
         return true;
     });
+    sortTodoItems();
     saveTodoItems();
 }
 

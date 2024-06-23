@@ -1,2 +1,0 @@
-TODO: 
- - Add sorting of todo list by due date
