@@ -2,6 +2,7 @@ import { todoItems, getTodoItem, addTodoItem, editTodoItem, deleteTodoItem } fro
 
 let showAddTodo = false;
 let showEditTodo = false;
+let currentEditId = '';
 
 function listenAddTodoButton() {
     const addTodoButton = document.querySelector('.js-add-todo-button');
@@ -44,6 +45,7 @@ function listenSubmitEditTodoButton(event) {
     editTodoItem(todoItem);
 
     showEditTodo = false;
+    currentEditId = '';
     renderEditTodoHTML({});
 
     renderTodoListHTML();
@@ -158,7 +160,13 @@ function renderTodoListHTML() {
 
             const todoItem = getTodoItem(todoId);
 
-            showEditTodo = true;
+            if (currentEditId == todoId) {
+                showEditTodo = false;
+                currentEditId = '';
+            } else {
+                showEditTodo = true;
+                currentEditId = todoId;
+            }
             renderEditTodoHTML(todoItem);
         })
     })
