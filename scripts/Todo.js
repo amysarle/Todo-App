@@ -1,4 +1,4 @@
-import { todoItems, getTodoItem, addTodoItem, editTodoItem, deleteTodoItem } from "../data/todoData.js"
+import { todoItems, getTodoItem, addTodoItem, editTodoItem, deleteTodoItem } from "../data/todoData.js";
 
 let showAddTodo = false;
 let showEditTodo = false;

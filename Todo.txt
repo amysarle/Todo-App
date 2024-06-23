@@ -1,4 +1,3 @@
 TODO: 
  - Add id creation UUID when adding todo item
- - Add cancel buttons to add and edit forms
  - Add sorting of todo list by due date
