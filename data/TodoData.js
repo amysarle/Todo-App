@@ -16,12 +16,6 @@ function loadTodoItems() {
     todoItems = todoItems.map((todoItem) => {
         return new TodoItem(todoItem);
     });
-
-    if(todoItems.length == 0) {
-        todoItems = tmpData.map((todoItem) => {
-            return new TodoItem(todoItem);
-        });
-    }
 }
 
 function saveTodoItems() {
@@ -43,7 +37,12 @@ export function getTodoItem(todoItemId) {
 }
 
 export function addTodoItem(todoItem) {
-    const id = 4;
+    const id = uuidv4();
+
+    if(getTodoItem(id)) {
+        addTodoItem(todoItem);
+    }
+
     todoItem.id = id;
 
     todoItems.push(new TodoItem(todoItem));
@@ -70,25 +69,5 @@ export function deleteTodoItem(todoItemId) {
     });
     saveTodoItems();
 }
-
-const tmpData = [{
-    id: 1,
-    name: "Wash Dishes",
-    createdDate: dayjs("06/15/24"),
-    dueDate: dayjs("06/25/24"),
-    status: "Not Started"
-},{
-    id: 2,
-    name: "Do Laundry",
-    createdDate: dayjs("06/13/24"),
-    dueDate: dayjs("06/25/24"),
-    status: "In Progress"
-},{
-    id: 3,
-    name: "Vacuum Floor",
-    createdDate: dayjs("06/21/24"),
-    dueDate: dayjs("06/26/24"),
-    status: "Completed"
-}];
 
 loadTodoItems();
