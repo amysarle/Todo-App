@@ -1,13 +1,41 @@
 import { todoItems } from "../data/TodoData.js";
 import { listenEditTodoButton } from "./TodoEdit.js";
 import { listenDeleteTodoButton } from "./TodoDelete.js";
+import { statusOptions } from "../data/EnvData.js";
 
 export function renderTodoListHTML() {
-    const todoTable = document.querySelector('.js-todo-table');
+    const todoList = document.querySelector('.js-todo-list');
 
-    let todoHTML = '';
+    let todoListHTML = '';
 
-    todoHTML += `
+    statusOptions.forEach((statusOption) => {
+        todoListHTML += `<div class="js-todo-status-section-${statusOptions.indexOf(statusOption)}">${statusOption}</div>`;
+    })
+
+    todoList.innerHTML = todoListHTML;
+    todoList.style.gridTemplateColumns = `repeat(${statusOptions.length}, 1fr)`;
+
+    todoItems.forEach((todoItem) => {
+        const todoListStatus = document.querySelector(`.js-todo-status-section-${statusOptions.indexOf(todoItem.status)}`);
+
+        let todoListStatusHTML = `
+            <div class="todo-item">
+                <p>${todoItem.name}</p>
+                <p>${todoItem.createdDate}</p>
+                <p>${todoItem.dueDate}</p>
+                <p>${todoItem.status}</p>
+                <button class=js-todo-edit-button data-todo-id=${todoItem.id}>Edit</button>
+                <button class=js-todo-delete-button data-todo-id=${todoItem.id}>Delete</button>
+            </div>
+        `;
+
+        todoListStatus.innerHTML += todoListStatusHTML;
+
+    })
+
+
+
+    /*todoHTML += `
         <tr>
             <th>Name</th>
             <th>Created Date</th>
@@ -29,9 +57,7 @@ export function renderTodoListHTML() {
                 <td><button class=js-todo-delete-button data-todo-id=${todoItem.id}>Delete</button></td>
             </tr>
         `;
-    });
-
-    todoTable.innerHTML = todoHTML;
+    });*/
 
     const editButtons = document.querySelectorAll('.js-todo-edit-button');
     editButtons.forEach((editButton) => {

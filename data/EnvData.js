@@ -1,1 +1,1 @@
-export const statusOptions = ["Not Started", "In Progress", "Completed"];
+export const statusOptions = ["Not Started", "Blocked", "In Progress", "Completed"];

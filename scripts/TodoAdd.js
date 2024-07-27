@@ -49,8 +49,8 @@ function renderAddTodoHTML() {
             <label for="status">Status:</label><br>
             <select name="status" id="status">
                 ${statusOptions.map((statusOption) => {
-                    return (`<option value="${statusOption}">${statusOption}</option>`);
-                })}
+                    return `<option value="${statusOption}">${statusOption}</option>`;
+                }).join(' ')}
             </select><br>
 
             <input type="submit" value="Submit">

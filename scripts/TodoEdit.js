@@ -60,8 +60,8 @@ function renderEditTodoHTML(todoItem) {
             <label for="status">Status:</label><br>
             <select name="status" id="status">
                 ${statusOptions.map((statusOption) => {
-                    return (`<option value="${statusOption}" ${todoItem.status != statusOption || "selected"}>${statusOption}</option>`);
-                })}
+                    return `<option value="${statusOption}" ${todoItem.status != statusOption || "selected"}>${statusOption}</option>`;
+                }).join(' ')}
             </select><br>
 
             <input type="submit" value="Submit" name="submit" data-todo-id=${todoItem.id}>

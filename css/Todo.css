@@ -25,7 +25,16 @@ section {
     align-items: center;
 }
 
-table {
+.todo-list {
+    display: grid;
+    width: 100%;
+}
+
+.todo-item {
+    background-color: gray;
+}
+
+/*table {
     width: 100%;
     border-spacing: 0px;
 }
@@ -38,4 +47,4 @@ th, td {
 
 tr:nth-child(odd) {
     background-color: lightgray;
-}
+}*/
