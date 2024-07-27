@@ -1,5 +1,6 @@
 import { editTodoItem, getTodoItem } from "../data/TodoData.js";
 import { renderTodoListHTML } from "./TodoList.js";
+import { statusOptions } from "../data/EnvData.js";
 
 let showEditTodo = false;
 let currentEditId = '';
@@ -58,9 +59,9 @@ function renderEditTodoHTML(todoItem) {
 
             <label for="status">Status:</label><br>
             <select name="status" id="status">
-                <option value="Not Started" ${todoItem.status != "Not Started" || "selected"}>Not Started</option>
-                <option value="In Progress" ${todoItem.status != "In Progress" || "selected"}>In Progress</option>
-                <option value="Completed" ${todoItem.status != "Completed" || "selected"}>Completed</option>
+                ${statusOptions.map((statusOption) => {
+                    return (`<option value="${statusOption}" ${todoItem.status != statusOption || "selected"}>${statusOption}</option>`);
+                })}
             </select><br>
 
             <input type="submit" value="Submit" name="submit" data-todo-id=${todoItem.id}>

@@ -1,0 +1,1 @@
+export const statusOptions = ["Not Started", "In Progress", "Completed"];

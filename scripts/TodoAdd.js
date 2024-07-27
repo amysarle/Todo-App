@@ -1,5 +1,6 @@
 import { addTodoItem } from "../data/TodoData.js";
 import { renderTodoListHTML } from "./TodoList.js";
+import { statusOptions } from "../data/EnvData.js";
 
 let showAddTodo = false;
 
@@ -47,9 +48,9 @@ function renderAddTodoHTML() {
 
             <label for="status">Status:</label><br>
             <select name="status" id="status">
-                <option value="Not Started" selected>Not Started</option>
-                <option value="In Progress">In Progress</option>
-                <option value="Completed">Completed</option>
+                ${statusOptions.map((statusOption) => {
+                    return (`<option value="${statusOption}">${statusOption}</option>`);
+                })}
             </select><br>
 
             <input type="submit" value="Submit">
