@@ -5,16 +5,6 @@
     --dark-green: #005f5f;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-image: url("../images/blackboard.jpg");
-    background-repeat: repeat;
-    background-size: cover;
-    background-attachment: fixed;
-}
-
 .container {
     display: flex;
     justify-content: space-around;
