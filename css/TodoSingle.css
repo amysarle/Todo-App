@@ -22,6 +22,7 @@ h1 {
 .column h2 {
     font-family: "Rock Salt", cursive, sans-serif;
     font-size: 20px;
+    font-weight: 100;
     text-align: center;
     color: var(--white);
 }

@@ -8,9 +8,22 @@
     color: var(--white);
 }
 
-.navbar-logo a {
-    color: var(--white);
+.navbar-logo {
     text-decoration: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-logo img {
+    height: 100%;
+    object-fit: contain;
+    aspect-ratio: 1/1;
+}
+
+.navbar-logo span {
+    padding-left: 10px;
+    color: var(--white);
     font-size: 24px;
     font-weight: 100;
 }
