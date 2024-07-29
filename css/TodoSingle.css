@@ -19,7 +19,7 @@ h1 {
     padding: 0 20px;
 }
 
-h2 {
+.column h2 {
     font-family: "Rock Salt", cursive, sans-serif;
     font-size: 20px;
     text-align: center;
@@ -33,7 +33,7 @@ h2 {
     margin: 10px 0;
 }
 
-h3 {
+.card h3 {
     margin: 0 0 10px;
     font-size: 18px;
     color: var(--grey);
