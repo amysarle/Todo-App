@@ -19,13 +19,13 @@ function renderSingleTaskList() {
             <div class="card">
                 <div class="card-header">
                     <h3>${singleTaskItem.title}</h3>
-                    <div class="icons">
-                        <img src="images/edit-icon.svg" alt="Edit" class="icon"/>
-                        <img src="images/delete-icon.svg" alt="Delete" class="icon"/>
+                    <div class="card-header-icons">
+                        <img src="images/edit-icon.svg" alt="Edit" class="card-header-icon"/>
+                        <img src="images/delete-icon.svg" alt="Delete" class="card-header-icon"/>
                     </div>
                 </div>
-                <p>${singleTaskItem.description}</p>
-                <div class="info">
+                <p class="card-description">${singleTaskItem.description}</p>
+                <div class="card-info">
                     <span>Created: ${singleTaskItem.createdDate}</span>
                     <span>Due: ${singleTaskItem.dueDate}</span>
                     <span>Priority: ${singleTaskItem.priority}</span>

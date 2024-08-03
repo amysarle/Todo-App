@@ -1,3 +1,7 @@
+/*
+    Header Styles
+*/
+
 .header {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -7,7 +11,7 @@
     margin: 0 auto;
 }
 
-.header h1 {
+h1 {
     grid-column: 2;
     font-family: "Rock Salt", cursive, sans-serif;
     text-align: center;
@@ -17,14 +21,14 @@
     margin: 0;
 }
 
-.header-item {
+.header-button {
     grid-column: 3;
     display: flex;
     justify-content: flex-end;
     align-items: center;
 }
 
-.header-item button {
+.header-button button {
     background-color: var(--light-green);
     border: none;
     color: white;
@@ -38,9 +42,13 @@
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.header-item button:hover {
+.header-button button:hover {
     background-color: var(--dark-green);
 }
+
+/*
+    Container Styles
+*/
 
 .container {
     display: grid;
@@ -55,13 +63,17 @@
     padding: 0 20px;
 }
 
-.column h2 {
+h2 {
     font-family: "Rock Salt", cursive, sans-serif;
     font-size: 20px;
     font-weight: 100;
     text-align: center;
     color: var(--white);
 }
+
+/*
+    Card Styles
+*/
 
 .card {
     background-color: var(--white);
@@ -77,34 +89,34 @@
     align-items: center;
 }
 
-.card-header h3 {
+h3 {
     margin: 0;
     font-size: 18px;
     color: var(--grey);
 }
 
-.card-header .icons {
+.card-header-icons {
     display: flex;
     gap: 10px;
 }
 
-.card-header .icon {
+.card-header-icon {
     width: 20px;
     height: 20px;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
 
-.card p {
+.card-description {
     margin: 5px 0;
     color: var(--light-grey);
 }
 
-.card .info {
+.card-info {
     font-size: 14px;
     color: var(--light-light-grey);
 }
 
-.card .info span {
+.card-info span {
     display: block;
 }
