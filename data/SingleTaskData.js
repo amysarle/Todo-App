@@ -28,3 +28,7 @@ class SingleTaskList {
         localStorage.setItem("SingleTaskList", JSON.stringify(this.items));
     }
 }
+
+export const singleTaskList = new SingleTaskList();
+export const statusOptions = ["Not Started", "In Progress", "Completed"];
+export const priorityOptions = ["Low", "Medium", "High"];

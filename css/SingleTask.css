@@ -18,6 +18,7 @@
 }
 
 .header-item {
+    grid-column: 3;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -69,10 +70,29 @@
     margin: 10px 0;
 }
 
-.card h3 {
+.card-header {
     margin: 0 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-header h3 {
+    margin: 0;
     font-size: 18px;
     color: var(--grey);
+}
+
+.card-header .icons {
+    display: flex;
+    gap: 10px;
+}
+
+.card-header .icon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
 .card p {
