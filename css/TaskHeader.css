@@ -1,0 +1,43 @@
+.header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 20px;
+    padding-bottom: 0px;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+h1 {
+    grid-column: 2;
+    font-family: "Rock Salt", cursive, sans-serif;
+    text-align: center;
+    padding: 20px;
+    color: var(--white);
+    font-size: 24px;
+    margin: 0;
+}
+
+.header-button {
+    grid-column: 3;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.header-button button {
+    background-color: var(--light-green);
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.header-button button:hover {
+    background-color: var(--dark-green);
+}
