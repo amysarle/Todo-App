@@ -14,7 +14,7 @@
     border-radius: 8px;
 }
 
-.column h2 {
+h2 {
     font-family: "Rock Salt", cursive, sans-serif;
     font-size: 20px;
     font-weight: 100;
@@ -30,30 +30,6 @@
     margin-bottom: 10px;
 }
 
-.task input[type="checkbox"] {
+.task input {
     margin-right: 15px;
-}
-
-.task-details {
-    flex: 1;
-}
-
-.task-details h3 {
-    margin: 0 0 5px;
-    font-size: 18px;
-    color: var(--grey);
-}
-
-.task-details p {
-    margin: 5px 0;
-    color: var(--light-grey);
-}
-
-.task-details .info {
-    font-size: 14px;
-    color: var(--light-light-grey);
-}
-
-.task-details .info span {
-    display: block;
 }
