@@ -1,4 +1,4 @@
-import { singleTaskList, statusOptions } from "../data/SingleTaskData.js";
+import { singleTaskList, statusOptions } from "../../data/SingleTaskData.js";
 
 function renderSingleTaskList() {
     const singleTaskListContainer = document.querySelector('.container');
@@ -28,7 +28,6 @@ function renderSingleTaskList() {
                 <div class="card-info">
                     <span>Created: ${singleTaskItem.createdDate}</span>
                     <span>Due: ${singleTaskItem.dueDate}</span>
-                    <span>Priority: ${singleTaskItem.priority}</span>
                 </div>
             </div>
         `;

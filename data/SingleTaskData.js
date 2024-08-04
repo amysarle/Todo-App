@@ -5,14 +5,13 @@ class SingleTask {
         this.description = itemInfo.description,
         this.status = itemInfo.status,
         this.createdDate = itemInfo.createdDate,
-        this.dueDate = itemInfo.dueDate,
-        this.priority = itemInfo.priority
+        this.dueDate = itemInfo.dueDate
     }
 }
 
 class SingleTaskList {
     constructor() {
-        this.items = []
+        this.items = [];
         this.loadItemsFromLocalStorage();
     }
 
@@ -31,4 +30,3 @@ class SingleTaskList {
 
 export const singleTaskList = new SingleTaskList();
 export const statusOptions = ["Not Started", "In Progress", "Completed"];
-export const priorityOptions = ["Low", "Medium", "High"];
