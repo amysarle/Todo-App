@@ -1,12 +1,12 @@
 import { recurringTaskList, frequencyOptions } from "../../data/RecurringTaskData.js";
 
 function renderRecurringTaskList() {
-    const recurringTaskListContainer = document.querySelector('.container');
+    const recurringTaskListContainer = document.querySelector('.list-container');
 
     let recurringTaskListContainerHTML = '';
 
     frequencyOptions.forEach((frequencyOption, index) => {
-        recurringTaskListContainerHTML += `<div class="column js-frequency-${index}"><h2>${frequencyOption}</h2></div>`;
+        recurringTaskListContainerHTML += `<div class="list-column js-frequency-${index}"><h2>${frequencyOption}</h2></div>`;
     })
 
     recurringTaskListContainer.innerHTML = recurringTaskListContainerHTML;

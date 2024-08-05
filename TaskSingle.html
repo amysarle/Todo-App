@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/Navbar.css">
     <link rel="stylesheet" href="css/TaskHeader.css">
     <link rel="stylesheet" href="css/TaskCard.css">
+    <link rel="stylesheet" href="css/TaskPopup.css">
     <link rel="stylesheet" href="css/TaskSingle.css">
 </head>
 
@@ -26,14 +27,45 @@
     </nav>
 
     <main>
-        <section class="header">
+        <section class="header-container">
             <h1>Single Tasks</h1>
             <div class="header-button">
                 <button>Add Task</button>
             </div>
         </section>
 
-        <section class="container">
+        <section class="list-container">
+        </section>
+
+        <section class="popup-container"  id="popupContainer">
+            <div class="popup">
+                <div class="popup-header">
+                    <h2>Add Task</h2>
+                    <img src="images/close-icon.svg" alt="x" class="close-btn"/>
+                </div>
+                <form id="addTaskForm">
+                    <label for="taskTitle">Title:</label>
+                    <input type="text" id="taskTitle" name="taskTitle" required>
+
+                    <label for="taskDescription">Description:</label>
+                    <textarea id="taskDescription" name="taskDescription" required></textarea>
+
+                    <label for="taskPriority">Status:</label>
+                    <select id="taskPriority" name="taskPriority">
+                        <option value="Low">Not Started</option>
+                        <option value="Medium">In Progress</option>
+                        <option value="High">Completed</option>
+                    </select>
+
+                    <label for="taskCreatedDate">Created Date:</label>
+                    <input type="date" id="taskCreatedDate" name="taskCreatedDate" required>
+
+                    <label for="taskDueDate">Due Date:</label>
+                    <input type="date" id="taskDueDate" name="taskDueDate" required>
+
+                    <button type="submit">Add Task</button>
+                </form>
+            </div>
         </section>
     </main>
 

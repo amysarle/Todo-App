@@ -1,12 +1,12 @@
 import { singleTaskList, statusOptions } from "../../data/SingleTaskData.js";
 
 function renderSingleTaskList() {
-    const singleTaskListContainer = document.querySelector('.container');
+    const singleTaskListContainer = document.querySelector('.list-container');
 
     let singleTaskListContainerHTML = '';
 
     statusOptions.forEach((statusOption, index) => {
-        singleTaskListContainerHTML += `<div class="column js-status-${index}"><h2>${statusOption}</h2></div>`;
+        singleTaskListContainerHTML += `<div class="list-column js-status-${index}"><h2>${statusOption}</h2></div>`;
     })
 
     singleTaskListContainer.innerHTML = singleTaskListContainerHTML;

@@ -5,10 +5,12 @@
     --grey: #2C2C2C;
     --light-green: #008080;
     --dark-green: #005f5f;
+    --black: #000000;
 }
 
 body {
     font-family: Arial, sans-serif;
+    color: var(--black);
     margin: 0;
     padding: 0;
     background-image: url("../images/blackboard-image.jpg");
