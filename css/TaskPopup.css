@@ -24,7 +24,7 @@
     margin-bottom: 20px;
 }
 
-h2 {
+.popup-header h2 {
     font-weight: 300;
     margin: 0;
 }
@@ -33,35 +33,35 @@ h2 {
     cursor: pointer;
 }
 
-form {
+.popup form {
     display: flex;
     flex-direction: column;
 }
 
-label {
+.popup form label {
     margin: 10px 0 5px;
 }
 
-input, textarea, select {
+.popup form input, textarea, select {
     margin-bottom: 10px;
     padding: 8px;
     border: 1px solid var(--light-light-grey);
     border-radius: 5px;
 }
 
-textarea {
+.popup form textarea {
     resize: none;
 }
 
-button {
+.popup form button {
     background-color: var(--light-green);
-    color: white;
+    color: var(--white);
     padding: 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
-button:hover {
+.popup form button:hover {
     background-color: var(--dark-green);
 }
