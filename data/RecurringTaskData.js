@@ -1,11 +1,11 @@
 class RecurringTask {
     constructor(itemInfo) {
         this.id = itemInfo.id,
-            this.title = itemInfo.title,
-            this.description = itemInfo.description,
-            this.frequency = itemInfo.frequency,
-            this.startDate = itemInfo.startDate,
-            this.completedDate = itemInfo.completedDate
+        this.title = itemInfo.title,
+        this.description = itemInfo.description,
+        this.frequency = itemInfo.frequency,
+        this.startDate = itemInfo.startDate,
+        this.completedDate = itemInfo.completedDate
     }
 }
 

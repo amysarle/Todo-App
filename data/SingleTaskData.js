@@ -58,8 +58,8 @@ class SingleTaskList {
         }
     }
     
-    editItem(item) {
-        this.getItem(item.id) = item;
+    editItem(id, item) {
+        this.getItem(id) = item;
 
         this.sortItems();
         this.saveItemsToLocalStorage();
