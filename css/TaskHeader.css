@@ -1,4 +1,4 @@
-.header-container {
+.header {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     padding: 20px;
@@ -7,7 +7,7 @@
     margin: 0 auto;
 }
 
-.header-container h1 {
+.header h1 {
     grid-column: 2;
     font-family: "Rock Salt", cursive, sans-serif;
     text-align: center;
@@ -17,14 +17,10 @@
     margin: 0;
 }
 
-.header-button {
+.header button {
     grid-column: 3;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-.header-button button {
+    align-self: center;
+    justify-self: flex-end;
     background-color: var(--light-green);
     border: none;
     color: white;
@@ -38,6 +34,6 @@
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.header-button button:hover {
+.header button:hover {
     background-color: var(--dark-green);
 }
