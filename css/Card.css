@@ -23,7 +23,12 @@
     gap: 10px;
 }
 
-.card-header-icon {
+.card-header button {
+    border: none;
+    background-color: var(--white);
+}
+
+.card-header button img {
     width: 20px;
     height: 20px;
     cursor: pointer;

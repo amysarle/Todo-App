@@ -1,12 +1,12 @@
 import { singleTaskList, statusOptions } from "../../data/SingleTaskData.js";
 
 function renderSingleTaskList() {
-    const singleTaskListContainer = document.querySelector('.list-container');
+    const singleTaskListContainer = document.querySelector('.list');
 
     let singleTaskListContainerHTML = '';
 
     statusOptions.forEach((statusOption, index) => {
-        singleTaskListContainerHTML += `<div class="list-column js-status-${index}"><h2>${statusOption}</h2></div>`;
+        singleTaskListContainerHTML += `<div class="column js-status-${index}"><h2>${statusOption}</h2></div>`;
     })
 
     singleTaskListContainer.innerHTML = singleTaskListContainerHTML;
@@ -20,8 +20,12 @@ function renderSingleTaskList() {
                 <div class="card-header">
                     <h3>${singleTaskItem.title}</h3>
                     <div class="card-header-icons">
-                        <img src="images/edit-icon.svg" alt="Edit" class="card-header-icon"/>
-                        <img src="images/delete-icon.svg" alt="Delete" class="card-header-icon"/>
+                        <button>
+                            <img src="images/edit-icon.svg" alt="Edit" class="card-header-icon"/>
+                        </button>
+                        <button>
+                            <img src="images/delete-icon.svg" alt="Delete" class="card-header-icon"/>
+                        </button>
                     </div>
                 </div>
                 <p class="card-description">${singleTaskItem.description}</p>

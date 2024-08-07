@@ -1,12 +1,12 @@
 import { recurringTaskList, frequencyOptions } from "../../data/RecurringTaskData.js";
 
 function renderRecurringTaskList() {
-    const recurringTaskListContainer = document.querySelector('.list-container');
+    const recurringTaskListContainer = document.querySelector('.list');
 
     let recurringTaskListContainerHTML = '';
 
     frequencyOptions.forEach((frequencyOption, index) => {
-        recurringTaskListContainerHTML += `<div class="list-column js-frequency-${index}"><h2>${frequencyOption}</h2></div>`;
+        recurringTaskListContainerHTML += `<div class="column js-frequency-${index}"><h2>${frequencyOption}</h2></div>`;
     })
 
     recurringTaskListContainer.innerHTML = recurringTaskListContainerHTML;
@@ -22,8 +22,12 @@ function renderRecurringTaskList() {
                     <div class="card-header">
                         <h3>${recurringTaskItem.title}</h3>
                         <div class="card-header-icons">
-                            <img src="images/edit-icon.svg" alt="Edit" class="card-header-icon"/>
-                            <img src="images/delete-icon.svg" alt="Delete" class="card-header-icon"/>
+                            <button>
+                                <img src="images/edit-icon.svg" alt="Edit" class="card-header-icon"/>
+                            </button>
+                            <button>
+                                <img src="images/delete-icon.svg" alt="Delete" class="card-header-icon"/>
+                            </button>
                         </div>
                     </div>
                     <p class="card-description">${recurringTaskItem.description}</p>

@@ -17,7 +17,7 @@ function listenClosePopupButton() {
 }
 
 function listenSubmitFormButton() {
-    const addTaskElement = document.querySelector('.js-add-task');
+    const addTaskElement = document.querySelector('.js-add-task-popup');
 
     addTaskElement.addEventListener('submit', (event) => {
         event.preventDefault();
@@ -37,10 +37,10 @@ function listenSubmitFormButton() {
 }
 
 function renderAddTaskHTML() {
-    const addTaskElement = document.querySelector('.js-add-task');
+    const addTaskElement = document.querySelector('.js-add-task-popup');
 
     const addTaskHTML = `
-        <div class="popup">
+        <div class="popup-container">
             <div class="popup-header">
                 <h2>Add Task</h2>
                 <button class="js-close-popup-button">
