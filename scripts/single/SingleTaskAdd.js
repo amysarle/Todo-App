@@ -76,12 +76,12 @@ function renderAddTaskHTML() {
 }
 
 function showAddTaskPopup() {
-    const addTaskElement = document.querySelector('.js-add-task');
+    const addTaskElement = document.querySelector('.js-add-task-popup');
     addTaskElement.style.display = 'flex';
 }
 
 function hideAddTaskPopup() {
-    const addTaskElement = document.querySelector('.js-add-task');
+    const addTaskElement = document.querySelector('.js-add-task-popup');
     addTaskElement.style.display = 'none';
 }
 

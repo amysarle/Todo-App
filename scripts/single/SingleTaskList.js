@@ -1,7 +1,7 @@
 import { singleTaskList, statusOptions } from "../../data/SingleTaskData.js";
 
 function renderSingleTaskList() {
-    const singleTaskListContainer = document.querySelector('.list');
+    const singleTaskListContainer = document.querySelector('.js-task-list');
 
     let singleTaskListContainerHTML = '';
 

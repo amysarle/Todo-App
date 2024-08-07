@@ -1,7 +1,7 @@
 import { recurringTaskList, frequencyOptions } from "../../data/RecurringTaskData.js";
 
 function renderRecurringTaskList() {
-    const recurringTaskListContainer = document.querySelector('.list');
+    const recurringTaskListContainer = document.querySelector('.js-task-list');
 
     let recurringTaskListContainerHTML = '';
 
