@@ -29,7 +29,9 @@
     margin: 0;
 }
 
-.close-btn {
+.popup-header button {
+    border: none;
+    background-color: white;
     cursor: pointer;
 }
 

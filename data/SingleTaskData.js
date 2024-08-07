@@ -15,6 +15,10 @@ class SingleTaskList {
         this.loadItemsFromLocalStorage();
     }
 
+    sortItems() {
+        this.items = this.items.sort((a, b) => dayjs(a.dueDate) - dayjs(b.dueDate));
+    }
+
     loadItemsFromLocalStorage() {
         const tmp = JSON.parse(localStorage.getItem("SingleTaskList"));
 
@@ -25,6 +29,52 @@ class SingleTaskList {
 
     saveItemsToLocalStorage() {
         localStorage.setItem("SingleTaskList", JSON.stringify(this.items));
+    }
+
+    getItem(id) {
+        let matchingItem;
+    
+        this.items.forEach((item) => {
+            if(item.id == id) {
+                matchingItem = item;
+            }
+        })
+    
+        return matchingItem;
+    }
+    
+    addItem(item) {
+        const id = uuidv4();
+    
+        if(this.getItem(id)) {
+            this.addItem(item);
+        }
+        else {
+            item.id = id;
+            this.items.push(new SingleTask(item));
+
+            this.sortItems();
+            this.saveItemsToLocalStorage();
+        }
+    }
+    
+    editItem(item) {
+        this.getItem(item.id) = item;
+
+        this.sortItems();
+        this.saveItemsToLocalStorage();
+    }
+    
+    deleteTodoItem(id) {
+        this.items = this.items.filter((item) => {
+            if(item.id == id){
+                return false;
+            }
+            return true;
+        });
+
+        this.sortItems();
+        this.saveItemsToLocalStorage();
     }
 }
 

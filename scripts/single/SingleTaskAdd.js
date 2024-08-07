@@ -1,11 +1,39 @@
-import { statusOptions } from "../../data/SingleTaskData.js";
+import { singleTaskList, statusOptions } from "../../data/SingleTaskData.js";
 
 function listenAddTaskButton() {
     const addTaskButton = document.querySelector('.js-add-task-button');
 
     addTaskButton.addEventListener('click', () => {
         showAddTaskPopup();
-    })
+    });
+}
+
+function listenClosePopupButton() {
+    const closePopupButton = document.querySelector('.js-close-popup-button');
+
+    closePopupButton.addEventListener('click', () => {
+        hideAddTaskPopup();
+    });
+}
+
+function listenSubmitFormButton() {
+    const addTaskElement = document.querySelector('.js-add-task');
+
+    addTaskElement.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const taskItem = {
+            title: event.target.title.value,
+            description: event.target.description.value,
+            status: event.target.status.value,
+            createdDate: event.target.createdDate.value,
+            dueDate: event.target.dueDate.value
+        }
+
+        singleTaskList.addItem(taskItem);
+
+        window.location.reload();
+    });
 }
 
 function renderAddTaskHTML() {
@@ -15,26 +43,28 @@ function renderAddTaskHTML() {
         <div class="popup">
             <div class="popup-header">
                 <h2>Add Task</h2>
-                <img src="images/close-icon.svg" alt="x" class="close-btn js-close-popup-button"/>
+                <button class="js-close-popup-button">
+                    <img src="images/close-icon.svg" alt="x"/>
+                </button>
             </div>
-            <form id="addTaskForm">
-                <label for="taskTitle">Title:</label>
-                <input type="text" id="taskTitle" name="taskTitle" required>
+            <form>
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
 
-                <label for="taskDescription">Description:</label>
-                <textarea id="taskDescription" name="taskDescription" required></textarea>
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" required></textarea>
 
-                <label for="taskStatus">Status:</label>
-                <select id="taskStatus" name="taskStatus">
+                <label for="status">Status:</label>
+                <select id="status" name="status">
                     ${statusOptions.map((statusOption) => {
                         return `<option value="${statusOption}">${statusOption}</option>`;
                     }).join(' ')}
                 </select>
 
-                <label for="taskCreatedDate">Created Date:</label>
+                <label for="createdDate">Created Date:</label>
                 <input type="date" id="createdDate" name="createdDate" value=${dayjs().format("YYYY-MM-DD")} required>
 
-                <label for="taskDueDate">Due Date:</label>
+                <label for="dueDate">Due Date:</label>
                 <input type="date" id="dueDate" name="dueDate" value=${dayjs().add(1, 'day').format("YYYY-MM-DD")} required>
 
                 <button type="submit">Add Task</button>
@@ -43,11 +73,6 @@ function renderAddTaskHTML() {
     `;
 
     addTaskElement.innerHTML = addTaskHTML;
-
-    const closePopupButton = document.querySelector('.js-close-popup-button');
-    closePopupButton.addEventListener('click', () => {
-        hideAddTaskPopup();
-    })
 }
 
 function showAddTaskPopup() {
@@ -60,5 +85,7 @@ function hideAddTaskPopup() {
     addTaskElement.style.display = 'none';
 }
 
-listenAddTaskButton();
 renderAddTaskHTML();
+listenAddTaskButton();
+listenClosePopupButton();
+listenSubmitFormButton();
