@@ -59,7 +59,11 @@ class RecurringTaskList {
     }
     
     editItem(id, item) {
-        this.getItem(id) = new RecurringTask(item);
+        const tmp = this.getItem(id);
+
+        Object.keys(tmp).forEach((key) => {
+            tmp[key] = item[key];
+        })
 
         this.sortItems();
         this.saveItemsToLocalStorage();

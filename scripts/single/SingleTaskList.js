@@ -8,7 +8,7 @@ function renderSingleTaskList() {
 
     statusOptions.forEach((statusOption, index) => {
         singleTaskListContainerHTML += `<div class="column js-status-${index}"><h2>${statusOption}</h2></div>`;
-    })
+    });
 
     singleTaskListContainer.innerHTML = singleTaskListContainerHTML;
     singleTaskListContainer.style.gridTemplateColumns = `repeat(${statusOptions.length}, 1fr)`;
@@ -38,12 +38,12 @@ function renderSingleTaskList() {
         `;
 
         singleTaskListColumn.innerHTML += singleTaskListCardHTML;
-    })
+    });
 
     const editButtons = document.querySelectorAll('.js-edit-task-button');
     editButtons.forEach((editButton) => {
         listenEditTaskButton(editButton);
-    })
+    });
 }
 
 renderSingleTaskList();
