@@ -59,7 +59,11 @@ class SingleTaskList {
     }
     
     editItem(id, item) {
-        this.getItem(id) = new SingleTask(item);
+        const tmp = this.getItem(id);
+
+        Object.keys(tmp).forEach((key) => {
+            tmp[key] = item[key];
+        })
 
         this.sortItems();
         this.saveItemsToLocalStorage();

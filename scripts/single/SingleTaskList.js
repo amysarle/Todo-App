@@ -1,4 +1,5 @@
 import { singleTaskList, statusOptions } from "../../data/SingleTaskData.js";
+import { listenEditTaskButton } from "./SingleTaskEdit.js";
 
 function renderSingleTaskList() {
     const singleTaskListContainer = document.querySelector('.js-task-list');
@@ -20,7 +21,7 @@ function renderSingleTaskList() {
                 <div class="card-header">
                     <h3>${singleTaskItem.title}</h3>
                     <div class="card-header-icons">
-                        <button>
+                        <button class="js-edit-task-button" data-task-id=${singleTaskItem.id}>
                             <img src="images/edit-icon.svg" alt="Edit" class="card-header-icon"/>
                         </button>
                         <button>
@@ -37,6 +38,11 @@ function renderSingleTaskList() {
         `;
 
         singleTaskListColumn.innerHTML += singleTaskListCardHTML;
+    })
+
+    const editButtons = document.querySelectorAll('.js-edit-task-button');
+    editButtons.forEach((editButton) => {
+        listenEditTaskButton(editButton);
     })
 }
 
