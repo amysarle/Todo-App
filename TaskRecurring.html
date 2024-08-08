@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/Navbar.css">
     <link rel="stylesheet" href="css/Header.css">
     <link rel="stylesheet" href="css/Card.css">
+    <link rel="stylesheet" href="css/Popup.css">
     <link rel="stylesheet" href="css/ListRecurring.css">
 </head>
 
@@ -27,14 +28,19 @@
 
     <main>
         <section class="header">
-            <h1>Single Tasks</h1>
+            <h1>Recurring Tasks</h1>
             <button class="js-add-task-button">Add Task</button>
         </section>
 
         <section class="list js-task-list">
         </section>
+
+        <section class="popup js-add-task-popup">
+        </section>
     </main>
 
+    <script src="https://unpkg.com/dayjs@1.11.11/dayjs.min.js"></script>
+    <script src="https://unpkg.com/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
     <script src="scripts/recurring/RecurringTask.js" type="module"></script>
 </body>
 

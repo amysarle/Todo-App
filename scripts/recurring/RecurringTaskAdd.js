@@ -1,4 +1,4 @@
-import { singleTaskList, statusOptions } from "../../data/SingleTaskData.js";
+import { recurringTaskList, frequencyOptions } from "../../data/RecurringTaskData.js";
 
 function listenAddTaskButton() {
     const addTaskButton = document.querySelector('.js-add-task-button');
@@ -25,12 +25,12 @@ function listenSubmitFormButton() {
         const taskItem = {
             title: event.target.title.value,
             description: event.target.description.value,
-            status: event.target.status.value,
-            createdDate: event.target.createdDate.value,
-            dueDate: event.target.dueDate.value
+            frequency: event.target.frequency.value,
+            startDate: event.target.startDate.value,
+            completedDate: event.target.completedDate.value
         }
 
-        singleTaskList.addItem(taskItem);
+        recurringTaskList.addItem(taskItem);
 
         window.location.reload();
     });
@@ -54,18 +54,18 @@ function renderAddTaskHTML() {
                 <label for="description">Description:</label>
                 <textarea id="description" name="description" required></textarea>
 
-                <label for="status">Status:</label>
-                <select id="status" name="status" required>
-                    ${statusOptions.map((statusOption) => {
-                        return `<option value="${statusOption}">${statusOption}</option>`;
+                <label for="frequency">Frequency:</label>
+                <select id="frequency" name="frequency" required>
+                    ${frequencyOptions.map((frequencyOption) => {
+                        return `<option value="${frequencyOption}">${frequencyOption}</option>`;
                     }).join(' ')}
                 </select>
 
-                <label for="createdDate">Created Date:</label>
-                <input type="date" id="createdDate" name="createdDate" value=${dayjs().format("YYYY-MM-DD")} required>
+                <label for="startDate">Start Date:</label>
+                <input type="date" id="startDate" name="startDate" value=${dayjs().format("YYYY-MM-DD")} required>
 
-                <label for="dueDate">Due Date:</label>
-                <input type="date" id="dueDate" name="dueDate" value=${dayjs().add(1, 'day').format("YYYY-MM-DD")} required>
+                <label for="completedDate">Completed Date:</label>
+                <input type="date" id="completedDate" name="completedDate" value=${dayjs().add(1, 'day').format("YYYY-MM-DD")} required>
 
                 <button type="submit">Add Task</button>
             </form>

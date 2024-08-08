@@ -59,13 +59,13 @@ class SingleTaskList {
     }
     
     editItem(id, item) {
-        this.getItem(id) = item;
+        this.getItem(id) = new SingleTask(item);
 
         this.sortItems();
         this.saveItemsToLocalStorage();
     }
     
-    deleteTodoItem(id) {
+    deleteItem(id) {
         this.items = this.items.filter((item) => {
             if(item.id == id){
                 return false;
