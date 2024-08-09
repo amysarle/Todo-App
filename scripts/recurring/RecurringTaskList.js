@@ -19,7 +19,7 @@ function renderRecurringTaskList() {
 
         let recurringTaskListCardHTML = `
             <div class="task">
-                <input type="checkbox">
+                <input type="checkbox" ${recurringTaskItem.completedDate ? 'checked' : ''}>
                 <div class="card">
                     <div class="card-header">
                         <h3>${recurringTaskItem.title}</h3>
@@ -34,8 +34,8 @@ function renderRecurringTaskList() {
                     </div>
                     <p class="card-description">${recurringTaskItem.description}</p>
                     <div class="card-info">
-                        <span>Created: ${recurringTaskItem.startDate}</span>
-                        <span>Due: ${recurringTaskItem.completedDate}</span>
+                        <span>Start: ${recurringTaskItem.startDate}</span>
+                        <span>Completed: ${recurringTaskItem.completedDate}</span>
                     </div>
                 </div>
             </div>
