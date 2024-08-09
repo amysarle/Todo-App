@@ -52,7 +52,7 @@ function renderAddTaskHTML() {
                 <input type="text" name="title" required>
 
                 <label for="description">Description:</label>
-                <textarea name="description" required></textarea>
+                <textarea name="description"></textarea>
 
                 <label for="frequency">Frequency:</label>
                 <select name="frequency" required>

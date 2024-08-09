@@ -64,7 +64,7 @@ function renderEditTaskHTML() {
                 <input type="text" id="title" name="title" value="" required>
 
                 <label for="description">Description:</label>
-                <textarea id="description" name="description" required></textarea>
+                <textarea id="description" name="description"></textarea>
 
                 <label for="status">Status:</label>
                 <select id="status" name="status" required>
