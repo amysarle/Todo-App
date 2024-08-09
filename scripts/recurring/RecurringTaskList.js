@@ -8,14 +8,14 @@ function renderRecurringTaskList() {
     let recurringTaskListContainerHTML = '';
 
     frequencyOptions.forEach((frequencyOption, index) => {
-        recurringTaskListContainerHTML += `<div class="column js-frequency-${index}"><h2>${frequencyOption}</h2></div>`;
+        recurringTaskListContainerHTML += `<div class="column" id="js-frequency-${index}"><h2>${frequencyOption}</h2></div>`;
     });
 
     recurringTaskListContainer.innerHTML = recurringTaskListContainerHTML;
     recurringTaskListContainer.style.gridTemplateColumns = `repeat(${frequencyOptions.length}, 1fr)`;
 
     recurringTaskList.items.forEach((recurringTaskItem) => {
-        const recurringTaskListColumn = document.querySelector(`.js-frequency-${frequencyOptions.indexOf(recurringTaskItem.frequency)}`);
+        const recurringTaskListColumn = document.getElementById(`js-frequency-${frequencyOptions.indexOf(recurringTaskItem.frequency)}`);
 
         let recurringTaskListCardHTML = `
             <div class="task">
