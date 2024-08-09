@@ -60,20 +60,20 @@ function renderEditTaskHTML() {
             <form>
                 <input type="hidden" id="id" name="id" required>
 
-                <label for="title">Title:</label>
+                <label for="title">Title: *</label>
                 <input type="text" id="title" name="title" value="" required>
 
                 <label for="description">Description:</label>
                 <textarea id="description" name="description"></textarea>
 
-                <label for="frequency">Frequency:</label>
+                <label for="frequency">Frequency: *</label>
                 <select id="frequency" name="frequency" required>
                     ${frequencyOptions.map((frequencyOption) => {
                         return `<option value="${frequencyOption}">${frequencyOption}</option>`;
                     }).join(' ')}
                 </select>
 
-                <label for="startDate">Start Date:</label>
+                <label for="startDate">Start Date: *</label>
                 <input type="date" id="startDate" name="startDate" value=${dayjs().format("YYYY-MM-DD")} required>
 
                 <label for="completedDate">Completed Date:</label>
