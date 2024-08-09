@@ -22,9 +22,15 @@ class SingleTaskList {
     loadItemsFromLocalStorage() {
         const tmp = JSON.parse(localStorage.getItem("SingleTaskList"));
 
-        this.items = tmp.map((item) => {
-            return new SingleTask(item);
-        });
+        if(tmp) {
+            this.items = tmp.map((item) => {
+                return new SingleTask(item);
+            });
+        }
+        
+        else {
+            this.items = [];
+        }
     }
 
     saveItemsToLocalStorage() {

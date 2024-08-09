@@ -22,9 +22,15 @@ class RecurringTaskList {
     loadItemsFromLocalStorage() {
         const tmp = JSON.parse(localStorage.getItem("RecurringTaskList"));
 
-        this.items = tmp.map((item) => {
-            return new RecurringTask(item);
-        });
+        if(tmp) {
+            this.items = tmp.map((item) => {
+                return new RecurringTask(item);
+            });
+        }
+
+        else {
+            this.items = []
+        }
     }
 
     saveItemsToLocalStorage() {
