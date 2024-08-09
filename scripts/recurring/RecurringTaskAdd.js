@@ -65,7 +65,7 @@ function renderAddTaskHTML() {
                 <input type="date" name="startDate" value=${dayjs().format("YYYY-MM-DD")} required>
 
                 <label for="completedDate">Completed Date:</label>
-                <input type="date" name="completedDate" value=${dayjs().add(1, 'day').format("YYYY-MM-DD")} required>
+                <input type="date" name="completedDate" required>
 
                 <button type="submit">Add Task</button>
             </form>
