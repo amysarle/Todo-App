@@ -74,10 +74,10 @@ function renderEditTaskHTML() {
                 </select>
 
                 <label for="createdDate">Created Date: *</label>
-                <input type="date" id="createdDate" name="createdDate" value=${dayjs().format("YYYY-MM-DD")} required>
+                <input type="date" id="createdDate" name="createdDate" required>
 
                 <label for="dueDate">Due Date: *</label>
-                <input type="date" id="dueDate" name="dueDate" value=${dayjs().add(1, 'day').format("YYYY-MM-DD")} required>
+                <input type="date" id="dueDate" name="dueDate" required>
 
                 <button type="submit">Edit Task</button>
             </form>
