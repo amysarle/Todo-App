@@ -16,7 +16,7 @@ class RecurringTaskList {
     }
 
     sortItems() {
-        this.items = this.items.sort((a, b) => dayjs(a.dueDate) - dayjs(b.dueDate));
+        this.items = this.items.sort((a, b) => dayjs(a.startDate) - dayjs(b.startDate));
     }
 
     loadItemsFromLocalStorage() {
