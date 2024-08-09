@@ -1,5 +1,6 @@
 import { recurringTaskList, frequencyOptions } from "../../data/RecurringTaskData.js";
 import { listenEditTaskButton } from "./RecurringTaskEdit.js";
+import { listenDeleteTaskButton } from "./RecurringTaskDelete.js";
 
 function renderRecurringTaskList() {
     const recurringTaskListContainer = document.querySelector('.js-task-list');
@@ -23,10 +24,10 @@ function renderRecurringTaskList() {
                     <div class="card-header">
                         <h3>${recurringTaskItem.title}</h3>
                         <div class="card-header-icons">
-                            <button class="js-edit-task-button" data-task-id=${recurringTaskItem.id}>
+                            <button class="js-edit-task-button" data-id=${recurringTaskItem.id}>
                                 <img src="images/edit-icon.svg" alt="Edit" class="card-header-icon"/>
                             </button>
-                            <button>
+                            <button class="js-delete-task-button" data-id=${recurringTaskItem.id}>
                                 <img src="images/delete-icon.svg" alt="Delete" class="card-header-icon"/>
                             </button>
                         </div>
@@ -46,6 +47,11 @@ function renderRecurringTaskList() {
     const editButtons = document.querySelectorAll('.js-edit-task-button');
     editButtons.forEach((editButton) => {
         listenEditTaskButton(editButton);
+    });
+
+    const deleteButtons = document.querySelectorAll('.js-delete-task-button');
+    deleteButtons.forEach((deleteButton) => {
+        listenDeleteTaskButton(deleteButton);
     });
 }
 

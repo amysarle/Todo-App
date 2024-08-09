@@ -2,9 +2,9 @@ import { recurringTaskList, frequencyOptions } from "../../data/RecurringTaskDat
 
 export function listenEditTaskButton(editTaskButton) {
     editTaskButton.addEventListener('click', () => {
-        const taskId = editTaskButton.dataset.taskId;
+        const id = editTaskButton.dataset.id;
 
-        const taskItem = recurringTaskList.getItem(taskId);
+        const taskItem = recurringTaskList.getItem(id);
 
         document.getElementById("id").value = taskItem.id;
         document.getElementById("title").value = taskItem.title;
