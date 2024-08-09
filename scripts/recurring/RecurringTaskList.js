@@ -1,6 +1,7 @@
 import { recurringTaskList, frequencyOptions } from "../../data/RecurringTaskData.js";
 import { listenEditTaskButton } from "./RecurringTaskEdit.js";
 import { listenDeleteTaskButton } from "./RecurringTaskDelete.js";
+import { listenCheckbox } from "./RecurringTaskCheckbox.js";
 
 function renderRecurringTaskList() {
     const recurringTaskListContainer = document.querySelector('.js-task-list');
@@ -19,7 +20,7 @@ function renderRecurringTaskList() {
 
         let recurringTaskListCardHTML = `
             <div class="task">
-                <input type="checkbox" ${recurringTaskItem.completedDate ? 'checked' : ''}>
+                <input class="js-completed-checkbox" data-id=${recurringTaskItem.id} type="checkbox" ${recurringTaskItem.completedDate ? 'checked' : ''}>
                 <div class="card">
                     <div class="card-header">
                         <h3>${recurringTaskItem.title}</h3>
@@ -52,6 +53,11 @@ function renderRecurringTaskList() {
     const deleteButtons = document.querySelectorAll('.js-delete-task-button');
     deleteButtons.forEach((deleteButton) => {
         listenDeleteTaskButton(deleteButton);
+    });
+
+    const checkboxes = document.querySelectorAll(".js-completed-checkbox");
+    checkboxes.forEach((checkbox) => {
+        listenCheckbox(checkbox);
     });
 }
 
