@@ -55,6 +55,7 @@ class SingleTaskList {
         if(this.getItem(id)) {
             this.addItem(item);
         }
+
         else {
             item.id = id;
             this.items.push(new SingleTask(item));
@@ -83,7 +84,6 @@ class SingleTaskList {
             return true;
         });
 
-        this.sortItems();
         this.saveItemsToLocalStorage();
     }
 }

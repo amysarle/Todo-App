@@ -55,6 +55,7 @@ class RecurringTaskList {
         if(this.getItem(id)) {
             this.addItem(item);
         }
+
         else {
             item.id = id;
             this.items.push(new RecurringTask(item));
@@ -83,7 +84,6 @@ class RecurringTaskList {
             return true;
         });
 
-        this.sortItems();
         this.saveItemsToLocalStorage();
     }
 }
