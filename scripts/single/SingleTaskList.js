@@ -8,17 +8,17 @@ function renderSingleTaskList() {
     let singleTaskListContainerHTML = '';
 
     statusOptions.forEach((statusOption, index) => {
-        singleTaskListContainerHTML += `<div class="column js-status-${index}"><h2>${statusOption}</h2></div>`;
+        singleTaskListContainerHTML += `<div class="column js-drop-element" id="js-status-${index}"><h2>${statusOption}</h2></div>`;
     });
 
     singleTaskListContainer.innerHTML = singleTaskListContainerHTML;
     singleTaskListContainer.style.gridTemplateColumns = `repeat(${statusOptions.length}, 1fr)`;
 
     singleTaskList.items.forEach((singleTaskItem) => {
-        const singleTaskListColumn = document.querySelector(`.js-status-${statusOptions.indexOf(singleTaskItem.status)}`);
+        const singleTaskListColumn = document.getElementById(`js-status-${statusOptions.indexOf(singleTaskItem.status)}`);
 
         let singleTaskListCardHTML = `
-            <div class="card">
+            <div class="card js-drag-element" draggable="true" data-id=${singleTaskItem.id}>
                 <div class="card-header">
                     <h3>${singleTaskItem.title}</h3>
                     <div class="card-header-icons">
