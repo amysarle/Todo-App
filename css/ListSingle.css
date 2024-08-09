@@ -1,4 +1,6 @@
 .list {
+    height: calc(100vh - 190px);
+    box-sizing: border-box;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     padding: 20px;
