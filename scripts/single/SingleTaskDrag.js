@@ -18,6 +18,14 @@ function listenDropElements() {
     dropElements.forEach((dropElement) => {
         dropElement.addEventListener('dragover', (event) => {
             event.preventDefault();
+
+            dropElement.classList.add('column-dragover');
+        });
+    });
+
+    dropElements.forEach((dropElement) => {
+        dropElement.addEventListener('dragleave', (event) => {
+            dropElement.classList.remove('column-dragover');
         });
     });
 
@@ -35,7 +43,6 @@ function listenDropElements() {
             singleTaskList.editItem(id, taskItem);
 
             window.location.reload();
-            
         });
     });
 }
