@@ -1,5 +1,6 @@
 import { singleTaskList, statusOptions } from "../../data/SingleTaskData.js";
 import { listenEditTaskButton } from "./SingleTaskEdit.js";
+import { listenDeleteTaskButton } from "./SingleTaskDelete.js";
 
 function renderSingleTaskList() {
     const singleTaskListContainer = document.querySelector('.js-task-list');
@@ -21,10 +22,10 @@ function renderSingleTaskList() {
                 <div class="card-header">
                     <h3>${singleTaskItem.title}</h3>
                     <div class="card-header-icons">
-                        <button class="js-edit-task-button" data-task-id=${singleTaskItem.id}>
+                        <button class="js-edit-task-button" data-id=${singleTaskItem.id}>
                             <img src="images/edit-icon.svg" alt="Edit" class="card-header-icon"/>
                         </button>
-                        <button>
+                        <button  class="js-delete-task-button" data-id=${singleTaskItem.id}>
                             <img src="images/delete-icon.svg" alt="Delete" class="card-header-icon"/>
                         </button>
                     </div>
@@ -43,6 +44,11 @@ function renderSingleTaskList() {
     const editButtons = document.querySelectorAll('.js-edit-task-button');
     editButtons.forEach((editButton) => {
         listenEditTaskButton(editButton);
+    });
+
+    const deleteButtons = document.querySelectorAll('.js-delete-task-button');
+    deleteButtons.forEach((deleteButton) => {
+        listenDeleteTaskButton(deleteButton);
     });
 }
 

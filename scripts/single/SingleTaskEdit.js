@@ -2,9 +2,9 @@ import { singleTaskList, statusOptions } from "../../data/SingleTaskData.js";
 
 export function listenEditTaskButton(editTaskButton) {
     editTaskButton.addEventListener('click', () => {
-        const taskId = editTaskButton.dataset.taskId;
+        const id = editTaskButton.dataset.id;
 
-        const taskItem = singleTaskList.getItem(taskId);
+        const taskItem = singleTaskList.getItem(id);
 
         document.getElementById("id").value = taskItem.id;
         document.getElementById("title").value = taskItem.title;
