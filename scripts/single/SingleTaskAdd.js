@@ -48,23 +48,23 @@ function renderAddTaskHTML() {
                 </button>
             </div>
             <form>
-                <label for="title">Title:</label>
+                <label for="title">Title: *</label>
                 <input type="text" name="title" required>
 
                 <label for="description">Description:</label>
                 <textarea name="description"></textarea>
 
-                <label for="status">Status:</label>
+                <label for="status">Status: *</label>
                 <select name="status" required>
                     ${statusOptions.map((statusOption) => {
                         return `<option value="${statusOption}">${statusOption}</option>`;
                     }).join(' ')}
                 </select>
 
-                <label for="createdDate">Created Date:</label>
+                <label for="createdDate">Created Date: *</label>
                 <input type="date" name="createdDate" value=${dayjs().format("YYYY-MM-DD")} required>
 
-                <label for="dueDate">Due Date:</label>
+                <label for="dueDate">Due Date: *</label>
                 <input type="date" name="dueDate" value=${dayjs().add(1, 'day').format("YYYY-MM-DD")} required>
 
                 <button type="submit">Add Task</button>
