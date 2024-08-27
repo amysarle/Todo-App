@@ -13,7 +13,6 @@ function renderRecurringTaskList() {
     });
 
     recurringTaskListContainer.innerHTML = recurringTaskListContainerHTML;
-    recurringTaskListContainer.style.gridTemplateColumns = `repeat(${frequencyOptions.length}, 1fr)`;
 
     recurringTaskList.items.forEach((recurringTaskItem) => {
         const recurringTaskListColumn = document.getElementById(`js-frequency-${frequencyOptions.indexOf(recurringTaskItem.frequency)}`);

@@ -12,7 +12,6 @@ function renderSingleTaskList() {
     });
 
     singleTaskListContainer.innerHTML = singleTaskListContainerHTML;
-    singleTaskListContainer.style.gridTemplateColumns = `repeat(${statusOptions.length}, 1fr)`;
 
     singleTaskList.items.forEach((singleTaskItem) => {
         const singleTaskListColumn = document.getElementById(`js-status-${statusOptions.indexOf(singleTaskItem.status)}`);

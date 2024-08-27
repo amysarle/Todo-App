@@ -1,8 +1,8 @@
 .header {
     box-sizing: border-box;
-    height: 120px;
+    min-height: 120px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     padding: 20px;
     padding-bottom: 0px;
     max-width: 1500px;
@@ -10,17 +10,17 @@
 }
 
 .header h1 {
-    grid-column: 2;
+    grid-column: 2 / span 3;
     font-family: "Rock Salt", cursive, sans-serif;
     text-align: center;
     padding: 20px;
     color: var(--white);
-    font-size: 24px;
+    font-size: 1.5em;
     margin: 0;
 }
 
 .header button {
-    grid-column: 3;
+    grid-column: 5;
     align-self: center;
     justify-self: flex-end;
     background-color: var(--light-green);
