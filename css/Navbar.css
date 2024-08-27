@@ -24,7 +24,7 @@
 .navbar-logo span {
     padding-left: 10px;
     color: var(--white);
-    font-size: 1.5em;
+    font-size: 1.25em;
     font-weight: 100;
 }
 
@@ -51,5 +51,9 @@
 @media screen and (max-width: 600px) {
     .navbar-logo img {
         height: 75%;
+    }
+
+    .navbar-links li {
+        margin-left: 10px;
     }
 }

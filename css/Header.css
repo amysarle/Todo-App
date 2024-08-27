@@ -39,3 +39,14 @@
 .header button:hover {
     background-color: var(--dark-green);
 }
+
+@media screen and (max-width: 825px) {
+    .header h1 {
+        font-size: 1.4em;
+        line-height: 2em;
+    }
+
+    .header button {
+        font-size: 14px;
+    }
+}
