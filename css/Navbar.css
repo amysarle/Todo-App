@@ -24,7 +24,7 @@
 .navbar-logo span {
     padding-left: 10px;
     color: var(--white);
-    font-size: 24px;
+    font-size: 1.5em;
     font-weight: 100;
 }
 
@@ -42,9 +42,14 @@
 .navbar-links a {
     color: var(--white);
     text-decoration: none;
-    font-size: 16px;
 }
 
 .navbar-links a:hover {
     text-decoration: underline;
+}
+
+@media screen and (max-width: 600px) {
+    .navbar-logo img {
+        height: 75%;
+    }
 }
