@@ -36,6 +36,7 @@
 }
 
 .navbar-links li {
+    text-align: right;
     margin-left: 20px;
 }
 
